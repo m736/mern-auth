@@ -12,7 +12,7 @@ connectDatabase();
 app.use(express.json());
 app.use(cookieParser());
 const allowedOrigins = ["https://mern-auth-oepn.onrender.com"];
-app.use(cors({ origin: "https://mern-auth-oepn.onrender.com" }));
+app.use(cors({ origin: allowedOrigins, credentials: true }));
 //app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.get("/", (req, res) => res.send("API working"));
 app.use("/api/auth", authRouter);
