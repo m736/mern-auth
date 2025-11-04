@@ -12,7 +12,12 @@ connectDatabase();
 app.use(express.json());
 app.use(cookieParser());
 const allowedOrigins = ["http://localhost:5173"];
-app.use(cors({ origin: allowedOrigins, credentials: true }));
+app.use(
+  cors({
+    origin: process.env.CLIENT_URL,
+    methods: "GET,POST,PUT,DELETE, PATCH",
+  })
+);
 //app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.get("/", (req, res) => res.send("API working"));
 app.use("/api/auth", authRouter);
