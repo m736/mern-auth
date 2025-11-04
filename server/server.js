@@ -15,7 +15,7 @@ app.use(cookieParser());
 //   "http://localhost:5173",
 //   "https://mern-auth-oepn.onrender.com",
 // ];
-// app.use(cors({ origin: allowedOrigins, credentials: true }));
+app.use(cors({ origin: "*", credentials: true }));
 //app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.get("/", (req, res) => res.send("API working"));
 app.use("/api/auth", authRouter);
