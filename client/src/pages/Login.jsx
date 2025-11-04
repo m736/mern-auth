@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { clearAuthError, login, register } from "../action/UserAction";
 import { toast } from "react-toastify";
-import Loader from "./Loader";
 import {
   clearLoginRequestCreated,
   clearRegisterRequestCreated,
@@ -150,13 +149,10 @@ const Login = () => {
           >
             Forgot password?
           </p>
-          {loading ? (
-            <Loader />
-          ) : (
-            <button className="w-full py-2.5 rounded-full bg-gradient-to-r from-indigo-500 to-indigo-900 font-medium text-white">
-              Sign Up
-            </button>
-          )}
+
+          <button className="w-full py-2.5 rounded-full bg-gradient-to-r from-indigo-500 to-indigo-900 font-medium text-white">
+            Sign Up
+          </button>
         </form>
         {state === "Sign Up" ? (
           <p className="tetx-gray-400 text-center text-xs mt-4">
