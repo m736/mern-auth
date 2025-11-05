@@ -3,7 +3,7 @@ const connection = {};
 const connectDatabase = async () => {
   try {
     if (connection.isConnected) return;
-    const db = await mongoose.connect(process.env.MONGO);
+    const db = await mongoose.connect(process.env.DB_LOCAL_URI);
     connection.isConnected = db.connections[0].readyState;
     // mongoose.connection.on("connected", () =>
     //   console.log("Database connected")
