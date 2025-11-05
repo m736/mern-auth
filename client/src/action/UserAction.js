@@ -29,8 +29,7 @@ const backendUrl = import.meta.env.VITE_API_KEY;
 export const login = (email, password) => async (dispatch) => {
   try {
     dispatch(loginRequest);
-    console.log(backendUrl);
-    console.log(`${email}-${password}`);
+
     const { data } = await axios.post(
       `${backendUrl}/api/auth/login`,
       {
@@ -42,7 +41,6 @@ export const login = (email, password) => async (dispatch) => {
 
     dispatch(loginSuccess(data));
   } catch (error) {
-    console.log(error);
     dispatch(loginFail(error.response.data.message));
   }
 };
@@ -52,8 +50,6 @@ export const clearAuthError = (dispatch) => {
 
 export const register = (userData) => async (dispatch) => {
   try {
-    console.log(userData);
-
     dispatch(registerRequest());
 
     const { data } = await axios.post(
@@ -63,7 +59,6 @@ export const register = (userData) => async (dispatch) => {
     );
     dispatch(registerSuccess(data));
   } catch (error) {
-    console.log(error.response.data.message);
     dispatch(registerFail(error.response.data.message));
   }
 };
@@ -82,13 +77,11 @@ export const loadUser = async (dispatch) => {
 };
 export const logout = async (dispatch) => {
   try {
-    console.log("logoutprocess");
     await axios.delete(`${backendUrl}/api/auth/logout`, {
       withCredentials: true,
     });
     dispatch(logoutSuccess());
   } catch (error) {
-    console.log(error);
     dispatch(logoutFail(error));
   }
 };
@@ -99,10 +92,9 @@ export const sentVerificationOtp = async (dispatch) => {
     const { data } = await axios.get(`${backendUrl}/api/auth/send-verify-otp`, {
       withCredentials: true,
     });
-    console.log(data);
+
     dispatch(sentVerificationOtpSuccess(data));
   } catch (error) {
-    console.log(error.response.data.message);
     dispatch(sentVerificationOtpFail(error.response.data.message));
   }
 };
@@ -116,7 +108,6 @@ export const sentVerifyEmail = (otp) => async (dispatch) => {
     );
     dispatch(emailVerifySuccess(data));
   } catch (error) {
-    console.log(error.response.data.message);
     dispatch(emailVerifyFail(error.response.data.message));
   }
 };
@@ -130,7 +121,6 @@ export const sentResetOtp = (email) => async (dispatch) => {
     );
     dispatch(sentResetOtpSuccess(data));
   } catch (error) {
-    console.log(error.response.data.message);
     dispatch(sentResetOtpFail(error.response.data.message));
   }
 };
@@ -146,7 +136,6 @@ export const sentResetPassword =
 
       dispatch(sentResetPasswordSuccess(data));
     } catch (error) {
-      console.log(error.response.data.message);
       dispatch(sentResetPasswordFail(error.response.data.message));
     }
   };

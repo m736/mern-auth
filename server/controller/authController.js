@@ -43,7 +43,7 @@ import sendToken from "../utils/jwt.js";
 
 export const register = catchAsyncError(async (req, res, next) => {
   const { name, email, password } = req.body;
-  console.log(req.body);
+
   if (!name || !email || !password) {
     return next(new ErrorHandler("Missing Details", 400));
   }

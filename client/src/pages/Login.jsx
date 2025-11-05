@@ -38,7 +38,6 @@ const Login = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     if (state == "Sign Up") {
-      console.log(formDatas.name);
       const Data = new FormData();
       Data.append("name", formDatas.name);
       Data.append("email", formDatas.email);
@@ -87,7 +86,6 @@ const Login = () => {
     registerSucessfull,
     clearAuthError,
   ]);
-  console.log(loading);
 
   return (
     <div className="flex items-center justify-center min-h-screen px-6 sm:px-0 bg-gradient-to-br from-blue-200 to-purple-100">

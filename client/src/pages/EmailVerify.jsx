@@ -12,7 +12,7 @@ const EmailVerify = () => {
     (state) => state.authState
   );
   const accVerified = user?.isAccountVerified;
-  console.log(user);
+
   const handleInput = (e, i) => {
     if (e.target.value.length > 0 && i < inputRefs.current.length - 1) {
       inputRefs.current[i + 1].focus();
@@ -40,7 +40,6 @@ const EmailVerify = () => {
   };
   useEffect(() => {
     if (isAuthenticated && user && isEmailverify) {
-      console.log("hii");
       navigate("/");
     }
 

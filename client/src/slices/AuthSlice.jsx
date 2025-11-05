@@ -184,7 +184,6 @@ const authSlice = createSlice({
     },
 
     logoutSuccess(state, action) {
-      console.log("logout");
       return {
         loading: false,
         isAuthenticated: false,

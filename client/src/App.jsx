@@ -14,7 +14,7 @@ const App = () => {
   useEffect(() => {
     store.dispatch(loadUser);
   }, []);
-  console.log(import.meta.env.VITE_API_KEY);
+
   return (
     <div>
       <ToastContainer />

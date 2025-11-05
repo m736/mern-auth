@@ -20,7 +20,7 @@ const ResetPassword = () => {
     isEmailSent,
     newPasswordReset,
   } = useSelector((state) => state.authState);
-  console.log(newPasswordReset);
+
   const inputRefs = React.useRef([]);
   const [email, setEmail] = useState("");
   const [newPassword, setNewPassword] = useState("");
@@ -63,7 +63,6 @@ const ResetPassword = () => {
   };
   useEffect(() => {
     if (newPasswordReset) {
-      console.log("hello");
       navigate("/login");
     }
 
